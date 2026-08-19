@@ -2,9 +2,6 @@
 
 A fully-featured, production-ready calculator built with vanilla HTML, CSS, and JavaScript. Designed with a mobile-first approach and packed with modern features for everyday use.
 
-## 🚀 Live Demo
-**Try it now**: [https://klas-gh.github.io/smartCalculator/](https://klas-gh.github.io/smartCalculator/)
-
 ## Features
 
 ### Core Functionality
