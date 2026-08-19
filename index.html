@@ -86,6 +86,15 @@
             </div>
         </div>
     </div>
+
+    <dialog class="confirm-dialog" id="historyConfirmDialog">
+        <h2>Clear history?</h2>
+        <p>Delete all saved calculations?</p>
+        <div class="confirm-actions">
+            <button class="btn-small" type="button" onclick="closeHistoryDialog()">Cancel</button>
+            <button class="btn-small confirm-delete" type="button" onclick="confirmClearHistory()">Delete</button>
+        </div>
+    </dialog>
     <script src="calculator.js"></script>
 </body>
 </html>

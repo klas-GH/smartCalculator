@@ -278,16 +278,23 @@ function useHistoryItem(calc) {
 }
 
 function clearHistory() {
-    if (confirm('Clear all history?')) {
-        history = [];
-        historyExpanded = false;
-        localStorage.removeItem('calcHistory');
-        document.querySelector('.history-panel').classList.remove('expanded');
-        const toggle = document.getElementById('historyToggle');
-        toggle.textContent = 'Show all';
-        toggle.setAttribute('aria-expanded', 'false');
-        updateHistoryDisplay();
-    }
+    document.getElementById('historyConfirmDialog').showModal();
+}
+
+function closeHistoryDialog() {
+    document.getElementById('historyConfirmDialog').close();
+}
+
+function confirmClearHistory() {
+    history = [];
+    historyExpanded = false;
+    localStorage.removeItem('calcHistory');
+    document.querySelector('.history-panel').classList.remove('expanded');
+    const toggle = document.getElementById('historyToggle');
+    toggle.textContent = 'Show all';
+    toggle.setAttribute('aria-expanded', 'false');
+    updateHistoryDisplay();
+    closeHistoryDialog();
 }
 
 function saveHistoryToStorage() {

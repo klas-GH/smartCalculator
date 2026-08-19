@@ -455,6 +455,41 @@ body.dark-mode {
     color: #667eea;
 }
 
+.confirm-dialog {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 18px;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    max-width: calc(100vw - 32px);
+}
+
+.confirm-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.confirm-dialog h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.confirm-dialog p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+.confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.confirm-delete {
+    color: #c53030;
+}
+
 .history-arrow {
     color: var(--text-secondary);
     font-size: 10px;
