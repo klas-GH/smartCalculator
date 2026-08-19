@@ -509,6 +509,25 @@ body.dark-mode {
     font-style: italic;
 }
 
+@media (max-width: 767px) {
+    body {
+        padding: 2px;
+    }
+
+    .calculator {
+        padding: 8px;
+    }
+
+    .header {
+        margin-bottom: 8px;
+    }
+
+    .history-panel {
+        padding-top: 6px;
+        margin-top: 6px;
+    }
+}
+
 /* Responsive Design - Tablet and Desktop */
 @media (min-width: 768px) {
     .calculator {
