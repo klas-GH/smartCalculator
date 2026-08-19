@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="header">
+            <div class="left-section">
+                <h1>Calculator</h1>
+                <div class="memory-indicators">
+                    <span class="mem-slot" id="mem1">M1<span class="dot"></span></span>
+                    <span class="mem-slot" id="mem2">M2<span class="dot"></span></span>
+                    <span class="mem-slot" id="mem3">M3<span class="dot"></span></span>
+                </div>
+            </div>
+            <div class="right-section">
+                <button class="btn-icon" id="themeToggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <button class="btn-icon" id="copyBtn" onclick="copyResult()" title="Copy result to clipboard">📋</button>
+            </div>
+        </div>
+        
+        <input type="text" id="display" class="display" readonly>
+        <input type="text" id="expression" class="expression" readonly placeholder="Expression preview">
+        
+        <div class="button-grid">
+            <!-- Memory Row -->
+            <button class="btn memory" onclick="storeMemory(1)">M1</button>
+            <button class="btn memory" onclick="storeMemory(2)">M2</button>
+            <button class="btn memory" onclick="storeMemory(3)">M3</button>
+            <button class="btn memory-clear" onclick="clearAllMemory()">MC</button>
+            
+            <!-- Row 1 -->
+            <button class="btn" onclick="appendNumber('7')">7</button>
+            <button class="btn" onclick="appendNumber('8')">8</button>
+            <button class="btn" onclick="appendNumber('9')">9</button>
+            <button class="btn operator" onclick="setOperator('÷')">÷</button>
+            
+            <!-- Row 2 -->
+            <button class="btn" onclick="appendNumber('4')">4</button>
+            <button class="btn" onclick="appendNumber('5')">5</button>
+            <button class="btn" onclick="appendNumber('6')">6</button>
+            <button class="btn operator" onclick="setOperator('×')">×</button>
+            
+            <!-- Row 3 -->
+            <button class="btn" onclick="appendNumber('1')">1</button>
+            <button class="btn" onclick="appendNumber('2')">2</button>
+            <button class="btn" onclick="appendNumber('3')">3</button>
+            <button class="btn operator" onclick="setOperator('−')">−</button>
+            
+            <!-- Row 4 -->
+            <button class="btn" onclick="appendNumber('0')">0</button>
+            <button class="btn" onclick="appendNumber('.')">.</button>
+            <button class="btn control backspace" onclick="backspace()">⌫</button>
+            <button class="btn operator" onclick="setOperator('+')">+</button>
+            
+            <!-- Row 5 -->
+            <button class="btn function" onclick="setPower()">x^y</button>
+            <button class="btn function" onclick="setSquareRoot()">√</button>
+            <button class="btn control" onclick="clearCurrent()">C</button>
+            <button class="btn control" onclick="clearAll()">AC</button>
+            
+            <!-- Recall Row -->
+            <button class="btn memory-recall" onclick="recallMemory(1)">RM1</button>
+            <button class="btn memory-recall" onclick="recallMemory(2)">RM2</button>
+            <button class="btn memory-recall" onclick="recallMemory(3)">RM3</button>
+            <button class="btn equals" onclick="calculate()" style="grid-column: span 1;">=</button>
+        </div>
+        
+        <!-- History Panel -->
+        <div class="history-panel">
+            <div class="history-header">
+                <h3>History</h3>
+                <button class="btn-small" onclick="clearHistory()" title="Clear all history">🗑️</button>
+            </div>
+            <div class="history-list" id="historyList">
+                <p class="empty-history">No calculations yet</p>
+            </div>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html>
