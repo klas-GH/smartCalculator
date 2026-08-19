@@ -126,13 +126,14 @@ Use the calculator online: https://klas-gh.github.io/smartCalculator/
 
 ## Install on a Phone
 
-The calculator can be added to a phone home screen from a supported browser:
+The calculator is a Progressive Web App (PWA) and can be installed from a supported browser:
 
 1. Open the live demo in Chrome or another supported mobile browser
 2. Open the browser menu
 3. Choose **Add to Home screen** or **Install app**
 
-The current version is a web app hosted on GitHub Pages and is not yet published in Google Play.
+The app shell is cached for offline use after the first visit. Calculation history and theme settings remain stored separately in each browser.
+
 
 ### Theme
 - Click 🌙 (or ☀️ in dark mode) to toggle between light and dark themes

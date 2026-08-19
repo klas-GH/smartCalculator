@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="smartCalculator icon">
+  <rect width="512" height="512" rx="102" fill="#667eea"/>
+  <rect x="93" y="67" width="326" height="378" rx="43" fill="#fff"/>
+  <rect x="130" y="104" width="252" height="91" rx="19" fill="#eef0ff"/>
+  <g fill="#667eea">
+    <rect x="130" y="232" width="54" height="54" rx="13"/>
+    <rect x="205" y="232" width="54" height="54" rx="13"/>
+    <rect x="280" y="232" width="54" height="54" rx="13"/>
+    <rect x="130" y="307" width="54" height="54" rx="13"/>
+    <rect x="205" y="307" width="54" height="54" rx="13"/>
+    <rect x="280" y="307" width="54" height="54" rx="13"/>
+  </g>
+  <rect x="130" y="382" width="204" height="27" rx="13" fill="#48bb78"/>
+</svg>
