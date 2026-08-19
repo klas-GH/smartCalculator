@@ -380,6 +380,7 @@ body.dark-mode {
 }
 
 .history-list {
+    overflow-x: hidden;
     overflow-y: auto;
     flex: 1;
     max-height: 30px;
@@ -409,6 +410,8 @@ body.dark-mode {
 }
 
 .history-item {
+    width: 100%;
+    min-width: 0;
     padding: 6px 8px;
     margin-bottom: 3px;
     background: var(--bg-secondary);
@@ -421,6 +424,18 @@ body.dark-mode {
     transition: all 0.2s ease;
     color: var(--text-primary);
     animation: slideIn 0.3s ease;
+}
+
+.history-item span:first-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.history-arrow {
+    flex-shrink: 0;
+    margin-left: 8px;
 }
 
 @keyframes slideIn {
