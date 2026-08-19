@@ -2,6 +2,10 @@
 
 A fully-featured, production-ready calculator built with vanilla HTML, CSS, and JavaScript. Designed with a mobile-first approach and packed with modern features for everyday use.
 
+## Live Demo
+
+Use the calculator online: https://klas-gh.github.io/smartCalculator/
+
 ## Features
 
 ### Core Functionality
@@ -26,10 +30,11 @@ A fully-featured, production-ready calculator built with vanilla HTML, CSS, and 
 
 ### Polish Features
 ✨ **Calculation History**
-- Shows all previous calculations with auto-formatted results
+- Shows the latest calculation by default
+- Click `Show all` to access the complete history
 - Click any history item to reuse its result
-- Persists up to 50 calculations in localStorage
-- Clear history button with confirmation
+- Clear history button with a custom confirmation dialog
+- Stores up to 50 calculations per browser
 
 ✨ **Keyboard Support** (Desktop)
 - `0-9` - Number input
@@ -84,19 +89,6 @@ A fully-featured, production-ready calculator built with vanilla HTML, CSS, and 
 - **Vanilla JavaScript** - No dependencies, pure implementation
 - **LocalStorage API** - Persistent history and theme preference
 
-## File Structure
-```
-__basic_calculator/
-├── index.html           # Main HTML structure and GitHub Pages entry point
-├── calculator.css       # Styling with dark mode support
-├── calculator.js        # Core logic and interactivity
-├── README.md            # This file
-└── .github/
-    └── skills/
-        └── calculator-feature-implementation/
-            └── SKILL.md  # Copilot skill for feature implementation
-```
-
 ## How to Use
 
 ### Basic Calculations
@@ -122,9 +114,25 @@ __basic_calculator/
 - Press `Backspace` to delete
 
 ### History
-- Your last calculations appear at the bottom
+- The latest calculation appears by default
+- Click `Show all` to view the complete history
 - Click any history item to load its result
-- Click 🗑️ to clear history
+- Click 🗑️ and confirm to clear history
+
+### Storage
+- Calculation history and theme preference are saved in browser `localStorage`
+- Data is stored separately for each browser and device
+- History is not shared between devices or browsers
+
+## Install on a Phone
+
+The calculator can be added to a phone home screen from a supported browser:
+
+1. Open the live demo in Chrome or another supported mobile browser
+2. Open the browser menu
+3. Choose **Add to Home screen** or **Install app**
+
+The current version is a web app hosted on GitHub Pages and is not yet published in Google Play.
 
 ### Theme
 - Click 🌙 (or ☀️ in dark mode) to toggle between light and dark themes
