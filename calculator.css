@@ -540,8 +540,18 @@ body.dark-mode {
     }
 
     .history-panel {
+        min-height: 0;
         padding-top: 6px;
         margin-top: 6px;
+    }
+
+    .history-panel.expanded {
+        max-height: 96px;
+        overflow: hidden;
+    }
+
+    .history-panel.expanded .history-list {
+        max-height: 60px;
     }
 }
 
