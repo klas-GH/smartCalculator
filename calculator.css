@@ -510,9 +510,16 @@ body.dark-mode {
 }
 
 @media (max-width: 767px) {
+    html {
+        height: 100%;
+        overflow: hidden;
+    }
+
     body {
         align-items: stretch;
+        height: 100dvh;
         min-height: 100dvh;
+        overflow: hidden;
         padding: 0;
     }
 
@@ -523,7 +530,9 @@ body.dark-mode {
         max-height: 100dvh;
         max-width: none;
         overflow-y: auto;
+        overscroll-behavior: contain;
         padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+        touch-action: pan-y;
     }
 
     .header {
