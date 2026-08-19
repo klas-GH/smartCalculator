@@ -2,6 +2,9 @@
 
 A fully-featured, production-ready calculator built with vanilla HTML, CSS, and JavaScript. Designed with a mobile-first approach and packed with modern features for everyday use.
 
+## 🚀 Live Demo
+**Try it now**: [https://klas-gh.github.io/smartCalculator/](https://klas-gh.github.io/smartCalculator/)
+
 ## Features
 
 ### Core Functionality
@@ -83,6 +86,19 @@ A fully-featured, production-ready calculator built with vanilla HTML, CSS, and 
 - **CSS3** - Flexbox/Grid layout, CSS variables for theming, animations
 - **Vanilla JavaScript** - No dependencies, pure implementation
 - **LocalStorage API** - Persistent history and theme preference
+
+## File Structure
+```
+__basic_calculator/
+├── index.html           # Main HTML structure and GitHub Pages entry point
+├── calculator.css       # Styling with dark mode support
+├── calculator.js        # Core logic and interactivity
+├── README.md            # This file
+└── .github/
+    └── skills/
+        └── calculator-feature-implementation/
+            └── SKILL.md  # Copilot skill for feature implementation
+```
 
 ## How to Use
 
