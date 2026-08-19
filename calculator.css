@@ -511,11 +511,19 @@ body.dark-mode {
 
 @media (max-width: 767px) {
     body {
-        padding: 2px;
+        align-items: stretch;
+        min-height: 100dvh;
+        padding: 0;
     }
 
     .calculator {
-        padding: 8px;
+        border-radius: 0;
+        height: 100dvh;
+        min-height: 100dvh;
+        max-height: 100dvh;
+        max-width: none;
+        overflow-y: auto;
+        padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
     }
 
     .header {
