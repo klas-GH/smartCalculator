@@ -76,7 +76,10 @@
         <div class="history-panel">
             <div class="history-header">
                 <h3>History</h3>
-                <button class="btn-small" onclick="clearHistory()" title="Clear all history">🗑️</button>
+                <div class="history-actions">
+                    <button class="btn-small history-toggle" id="historyToggle" onclick="toggleHistory()" aria-expanded="false">Show all</button>
+                    <button class="btn-small" onclick="clearHistory()" title="Clear all history">🗑️</button>
+                </div>
             </div>
             <div class="history-list" id="historyList">
                 <p class="empty-history">No calculations yet</p>

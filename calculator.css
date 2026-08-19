@@ -348,6 +348,12 @@ body.dark-mode {
     margin-bottom: 8px;
 }
 
+.history-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .history-header h3 {
     font-size: 14px;
     color: var(--text-secondary);
@@ -376,7 +382,12 @@ body.dark-mode {
 .history-list {
     overflow-y: auto;
     flex: 1;
-    max-height: 90px;
+    max-height: 30px;
+    transition: max-height 0.25s ease;
+}
+
+.history-panel.expanded .history-list {
+    max-height: 140px;
 }
 
 .history-list::-webkit-scrollbar {

@@ -231,6 +231,7 @@ function updateDisplay() {
 
 // ============= HISTORY MANAGEMENT =============
 let history = [];
+let historyExpanded = false;
 
 function addToHistory(calc) {
     history.unshift(calc); // Add to beginning
@@ -247,12 +248,23 @@ function updateHistoryDisplay() {
         return;
     }
     
-    historyList.innerHTML = history.map((calc, index) => 
+    const visibleHistory = historyExpanded ? history : history.slice(0, 1);
+    historyList.innerHTML = visibleHistory.map((calc) =>
         `<div class="history-item" onclick="useHistoryItem('${calc.replace(/'/g, "\\'")}')">
             <span>${calc}</span>
             <span class="history-arrow">→</span>
         </div>`
     ).join('');
+}
+
+function toggleHistory() {
+    historyExpanded = !historyExpanded;
+    document.querySelector('.history-panel').classList.toggle('expanded', historyExpanded);
+
+    const toggle = document.getElementById('historyToggle');
+    toggle.textContent = historyExpanded ? 'Hide' : 'Show all';
+    toggle.setAttribute('aria-expanded', String(historyExpanded));
+    updateHistoryDisplay();
 }
 
 function useHistoryItem(calc) {
@@ -268,7 +280,12 @@ function useHistoryItem(calc) {
 function clearHistory() {
     if (confirm('Clear all history?')) {
         history = [];
+        historyExpanded = false;
         localStorage.removeItem('calcHistory');
+        document.querySelector('.history-panel').classList.remove('expanded');
+        const toggle = document.getElementById('historyToggle');
+        toggle.textContent = 'Show all';
+        toggle.setAttribute('aria-expanded', 'false');
         updateHistoryDisplay();
     }
 }
