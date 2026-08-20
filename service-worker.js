@@ -1,4 +1,4 @@
-const CACHE_NAME = 'smart-calculator-v6';
+const CACHE_NAME = 'smart-calculator-v7';
 const APP_SHELL = [
     './',
     './index.html',

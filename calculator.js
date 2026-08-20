@@ -420,6 +420,37 @@ function copyResult() {
     }
 }
 
+// ============= PWA INSTALLATION =============
+let deferredInstallPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    const installBtn = document.getElementById('installBtn');
+    if (installBtn && !window.matchMedia('(display-mode: standalone)').matches) {
+        installBtn.style.display = 'inline-flex';
+    }
+});
+
+function installApp() {
+    if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                const installBtn = document.getElementById('installBtn');
+                if (installBtn) installBtn.style.display = 'none';
+            }
+            deferredInstallPrompt = null;
+        });
+    }
+}
+
+window.addEventListener('appinstalled', () => {
+    const installBtn = document.getElementById('installBtn');
+    if (installBtn) installBtn.style.display = 'none';
+    deferredInstallPrompt = null;
+});
+
 // ============= INITIALIZATION =============
 loadThemeFromStorage();
 loadHistoryFromStorage();
