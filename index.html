@@ -78,7 +78,7 @@
             <!-- Row 6 (New Features & 2-row Equals) -->
             <button class="btn function" onclick="applyPercentage()" title="Percentage (%)">%</button>
             <button class="btn function" onclick="toggleSign()" title="Sign Toggle (±)">±</button>
-            <button class="btn function converter-btn" onclick="openConverter()" title="Unit & Currency Converter">⇄</button>
+            <button class="btn function converter-btn" onclick="openConverter()" title="Unit Converter">⇄</button>
             <button class="btn equals" onclick="calculate()" title="Calculate (=)">=</button>
             
             <!-- Recall Row (4th column occupied by tall Equals) -->
@@ -102,17 +102,16 @@
         </div>
     </div>
 
-    <!-- Unit & Currency Converter Dialog -->
+    <!-- Unit Converter Dialog -->
     <dialog class="converter-dialog" id="converterDialog">
         <div class="converter-header">
-            <h2>Unit & Currency Converter</h2>
+            <h2>Unit Converter</h2>
             <button class="btn-icon close-btn" type="button" onclick="closeConverter()" aria-label="Close converter">✕</button>
         </div>
         <div class="converter-tabs">
             <button class="converter-tab active" data-tab="length" type="button" onclick="setConverterCategory('length')">Length</button>
             <button class="converter-tab" data-tab="weight" type="button" onclick="setConverterCategory('weight')">Weight</button>
             <button class="converter-tab" data-tab="temp" type="button" onclick="setConverterCategory('temp')">Temp</button>
-            <button class="converter-tab" data-tab="currency" type="button" onclick="setConverterCategory('currency')">Currency</button>
         </div>
         <div class="converter-body">
             <div class="converter-row">

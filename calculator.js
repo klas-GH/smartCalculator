@@ -503,7 +503,7 @@ window.addEventListener('appinstalled', () => {
     deferredInstallPrompt = null;
 });
 
-// ============= UNIT & CURRENCY CONVERTER =============
+// ============= UNIT CONVERTER =============
 const CONVERTER_DATA = {
     length: {
         units: [
@@ -540,21 +540,6 @@ const CONVERTER_DATA = {
         defaultFrom: 'c',
         defaultTo: 'f'
     },
-    currency: {
-        units: [
-            { id: 'USD', name: 'USD - US Dollar ($)', rate: 1.0 },
-            { id: 'EUR', name: 'EUR - Euro (€)', rate: 0.92 },
-            { id: 'GBP', name: 'GBP - British Pound (£)', rate: 0.79 },
-            { id: 'JPY', name: 'JPY - Japanese Yen (¥)', rate: 155.0 },
-            { id: 'CAD', name: 'CAD - Canadian Dollar (C$)', rate: 1.36 },
-            { id: 'AUD', name: 'AUD - Australian Dollar (A$)', rate: 1.52 },
-            { id: 'CHF', name: 'CHF - Swiss Franc (Fr)', rate: 0.90 },
-            { id: 'CNY', name: 'CNY - Chinese Yuan (¥)', rate: 7.23 },
-            { id: 'INR', name: 'INR - Indian Rupee (₹)', rate: 83.5 }
-        ],
-        defaultFrom: 'USD',
-        defaultTo: 'EUR'
-    }
 };
 
 let currentConverterCategory = 'length';
@@ -640,14 +625,6 @@ function calculateConversion() {
         if (toUnit === 'c') result = tempInC;
         else if (toUnit === 'f') result = (tempInC * (9 / 5)) + 32;
         else if (toUnit === 'k') result = tempInC + 273.15;
-    } else if (currentConverterCategory === 'currency') {
-        const units = CONVERTER_DATA.currency.units;
-        const fromItem = units.find(u => u.id === fromUnit);
-        const toItem = units.find(u => u.id === toUnit);
-        if (fromItem && toItem) {
-            const valInUSD = fromVal / fromItem.rate;
-            result = valInUSD * toItem.rate;
-        }
     } else {
         const units = CONVERTER_DATA[currentConverterCategory]?.units;
         if (units) {

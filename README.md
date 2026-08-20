@@ -13,7 +13,7 @@ Use the calculator online: https://klas-gh.github.io/smartCalculator/
 - **Smart Controls**: 
   - `=` Calculate result (prominent 2-row tall button)
   - `±` Sign toggle (positive / negative)
-  - `⇄` **Unit & Currency Converter** (Length, Weight, Temperature, Currency)
+  - `⇄` **Unit Converter** (Length, Weight, Temperature)
   - `C` Clear current entry (keeps operation)
   - `AC` All Clear (full reset)
   - `.` Decimal point
@@ -36,12 +36,11 @@ Use the calculator online: https://klas-gh.github.io/smartCalculator/
 - Full Progressive Web App with offline caching via Service Worker
 - Standalone app experience on iOS, Android, and PC
 
-✨ **Unit & Currency Converter (`⇄`)**
-- Built-in converter dialog with 4 categories:
+✨ **Unit Converter (`⇄`)**
+- Built-in converter dialog with 3 categories:
   - **Length**: Meters, Kilometers, Centimeters, Millimeters, Miles, Yards, Feet, Inches
   - **Weight**: Kilograms, Grams, Milligrams, Pounds, Ounces, Metric Tons
   - **Temperature**: Celsius, Fahrenheit, Kelvin
-  - **Currency**: USD, EUR, GBP, JPY, CAD, AUD, CHF, CNY, INR
 - One-click unit swap (⇅) and direct "Use in Calculator" import button
 
 ✨ **Calculation History**
