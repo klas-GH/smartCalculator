@@ -1,12 +1,12 @@
-const CACHE_NAME = 'smart-calculator-v9';
+const CACHE_NAME = 'smart-calculator-v10';
 const APP_SHELL = [
     './',
     './index.html',
     './calculator.css',
     './calculator.js',
     './manifest.webmanifest',
-    './icons/icon-192.svg',
-    './icons/icon-512.svg'
+    './icons/icon-192.png',
+    './icons/icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {
