@@ -40,9 +40,8 @@ body {
     min-height: 100dvh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 8px;
+    padding: 16px;
     transition: background 0.3s ease;
-    overscroll-behavior: none;
 }
 
 body.dark-mode {
@@ -53,9 +52,9 @@ body.dark-mode {
     background: var(--bg-primary);
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    padding: 12px;
+    padding: 16px 18px;
     width: 100%;
-    max-width: 420px;
+    max-width: 390px;
     transition: background 0.3s ease, box-shadow 0.3s ease;
     color: var(--text-primary);
 }
@@ -649,20 +648,95 @@ body.dark-mode {
 
 /* Responsive Design - Tablet and Desktop */
 @media (min-width: 768px) {
-    .calculator {
-        padding: 30px;
-        max-width: 520px;
+    html {
+        height: 100%;
+        overflow-y: auto;
     }
-    
+
+    body {
+        min-height: 100vh;
+        padding: 24px 16px;
+        overflow-y: auto;
+    }
+
+    .calculator {
+        padding: 18px 20px;
+        max-width: 390px;
+        max-height: min(94vh, 600px);
+        margin: auto;
+        border-radius: 20px;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+    }
+
+    .calculator h1 {
+        font-size: 20px;
+    }
+
+    .header {
+        margin-bottom: 8px;
+    }
+
+    .btn-icon {
+        padding: 6px 10px;
+        font-size: 16px;
+    }
+
+    .display {
+        height: 52px;
+        font-size: 26px;
+        padding: 8px 14px;
+        margin-bottom: 4px;
+    }
+
+    .expression {
+        height: 28px;
+        font-size: 12px;
+        padding: 4px 14px;
+        margin-bottom: 8px;
+    }
+
+    .button-grid {
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+
     .btn {
-        padding: 18px;
-        min-height: 52px;
+        padding: 10px 8px;
+        min-height: 44px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+    .btn.equals {
         font-size: 18px;
     }
-    
-    .display {
-        height: 80px;
-        font-size: 36px;
+
+    .history-panel {
+        padding-top: 6px;
+        margin-top: 6px;
+        max-height: 130px;
+    }
+
+    .history-header {
+        margin-bottom: 6px;
+    }
+
+    .history-header h3 {
+        font-size: 12px;
+    }
+
+    .history-list {
+        max-height: 28px;
+    }
+
+    .history-panel.expanded .history-list {
+        max-height: 80px;
+    }
+
+    .history-item {
+        padding: 4px 8px;
+        margin-bottom: 3px;
+        font-size: 12px;
     }
 }
 
