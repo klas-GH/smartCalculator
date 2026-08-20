@@ -186,7 +186,7 @@ The app shell is cached for offline use after the first visit. Calculation histo
 - No external dependencies
 
 ## License
-Open source - feel free to use and modify for your projects.
+This project is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt).
 
 ## Credits
 Built as a modern, feature-rich calculator demonstration showcasing:
