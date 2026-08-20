@@ -152,15 +152,6 @@ The calculator is a Progressive Web App (PWA) and can be installed from a suppor
 
 The app shell is cached for offline use after the first visit. Calculation history and theme settings remain stored separately in each browser.
 
-### Android Deployment Checklist
-
-- Host the app over HTTPS (or use `localhost` during development); Android browsers do not install service workers from ordinary HTTP hosts.
-- Deploy `index.html`, `calculator.css`, `calculator.js`, `manifest.webmanifest`, `service-worker.js`, and the complete `icons/` directory together.
-- Open the deployed URL in Chrome for Android and use **Install app** or **Add to Home screen**.
-- After changing cached files, increment `CACHE_NAME` in `service-worker.js` so installed clients receive the new app shell.
-- This project is packaged as an installable Android PWA. Creating a Play Store APK/AAB would require a separate Android wrapper such as Trusted Web Activity or Capacitor.
-
-
 ### Theme
 - Click 🌙 (or ☀️ in dark mode) to toggle between light and dark themes
 - Your preference is saved automatically
