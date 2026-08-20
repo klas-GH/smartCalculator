@@ -135,6 +135,9 @@ function calculate() {
             currentInput = 'Error: Invalid result';
         } else {
             currentInput = formatNumber(result);
+            // Add to history
+            const historyEntry = `${formatNumber(prev)} ${operator} ${formatNumber(current)} = ${currentInput}`;
+            addToHistory(historyEntry);
         }
         
         expressionStr = '';
@@ -406,68 +409,6 @@ function copyResult() {
             }, 1500);
         });
     }
-}
-
-// ============= ENHANCED CALCULATE WITH HISTORY =============
-// Override the calculate function to add history
-const originalCalculate = calculate;
-function calculate() {
-    if (previousInput === '' || currentInput === '' || operator === null) return;
-    
-    const prev = parseFloat(previousInput);
-    const current = parseFloat(currentInput);
-    let result;
-    
-    try {
-        switch (operator) {
-            case '+':
-                result = prev + current;
-                break;
-            case '−':
-                result = prev - current;
-                break;
-            case '×':
-                result = prev * current;
-                break;
-            case '÷':
-                if (current === 0) {
-                    currentInput = 'Error: Divide by zero';
-                    operator = null;
-                    previousInput = '';
-                    shouldResetDisplay = true;
-                    updateDisplay();
-                    return;
-                }
-                result = prev / current;
-                break;
-            case '**':
-                result = Math.pow(prev, current);
-                break;
-            default:
-                return;
-        }
-        
-        if (!isFinite(result)) {
-            currentInput = 'Error: Invalid result';
-        } else {
-            currentInput = formatNumber(result);
-            // Add to history
-            const historyEntry = `${formatNumber(prev)} ${operator} ${formatNumber(current)} = ${currentInput}`;
-            addToHistory(historyEntry);
-        }
-        
-        expressionStr = '';
-        operator = null;
-        previousInput = '';
-        shouldResetDisplay = true;
-    } catch (e) {
-        currentInput = 'Error';
-        operator = null;
-        previousInput = '';
-        shouldResetDisplay = true;
-    }
-    
-    updateDisplay();
 }
 
 // ============= INITIALIZATION =============
