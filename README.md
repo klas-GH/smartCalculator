@@ -9,9 +9,11 @@ Use the calculator online: https://klas-gh.github.io/smartCalculator/
 ## Features
 
 ### Core Functionality
-- **6 Mathematical Operations**: Addition (+), Subtraction (−), Multiplication (×), Division (÷), Power (x^y), Square Root (√)
+- **Mathematical Operations**: Addition (+), Subtraction (−), Multiplication (×), Division (÷), Power (x^y), Square Root (√), Percentage (%)
 - **Smart Controls**: 
-  - `=` Calculate result
+  - `=` Calculate result (prominent 2-row tall button)
+  - `±` Sign toggle (positive / negative)
+  - `⇄` **Unit & Currency Converter** (Length, Weight, Temperature, Currency)
   - `C` Clear current entry (keeps operation)
   - `AC` All Clear (full reset)
   - `.` Decimal point
@@ -29,6 +31,19 @@ Use the calculator online: https://klas-gh.github.io/smartCalculator/
 - Prevents leading zeros (except for decimals)
 
 ### Polish Features
+✨ **In-App PWA Install (`📲`)**
+- Dedicated one-click install button in the top bar on supported browsers (Android & Desktop)
+- Full Progressive Web App with offline caching via Service Worker
+- Standalone app experience on iOS, Android, and PC
+
+✨ **Unit & Currency Converter (`⇄`)**
+- Built-in converter dialog with 4 categories:
+  - **Length**: Meters, Kilometers, Centimeters, Millimeters, Miles, Yards, Feet, Inches
+  - **Weight**: Kilograms, Grams, Milligrams, Pounds, Ounces, Metric Tons
+  - **Temperature**: Celsius, Fahrenheit, Kelvin
+  - **Currency**: USD, EUR, GBP, JPY, CAD, AUD, CHF, CNY, INR
+- One-click unit swap (⇅) and direct "Use in Calculator" import button
+
 ✨ **Calculation History**
 - Shows the latest calculation by default
 - Click `Show all` to access the complete history
@@ -39,6 +54,7 @@ Use the calculator online: https://klas-gh.github.io/smartCalculator/
 ✨ **Keyboard Support** (Desktop)
 - `0-9` - Number input
 - `+ - * /` - Operations
+- `%` - Percentage calculation
 - `Enter` or `=` - Calculate
 - `Escape` - Clear all
 - `Backspace` - Delete last digit
@@ -49,12 +65,14 @@ Use the calculator online: https://klas-gh.github.io/smartCalculator/
 - Smooth transitions on all elements
 - Complete color scheme adaptation
 
-✨ **User Experience**
+✨ **User Experience & Layout**
+- Fixed full-screen viewport lock on mobile with adaptive row scaling
+- Compact, proportional card design on Desktop/PC avoiding vertical overflow
+- Prominent 2-row tall Equals button
 - Expression preview shows current calculation (`25 × 12`)
 - Subtle animations (pulse, slide-in, scale effects)
 - Copy result to clipboard with feedback
-- Touch-friendly buttons (48px+ minimum)
-- Responsive design for mobile, tablet, and desktop
+- Touch-friendly buttons (44-48px+ minimum)
 
 ✨ **Error Handling**
 - Friendly error messages (not raw errors):
@@ -190,5 +208,5 @@ Built as a modern, feature-rich calculator demonstration showcasing:
 
 ---
 
-**Last Updated**: 2026-08-19  
-**Version**: 1.0.0
+**Last Updated**: 2026-08-20  
+**Version**: 1.1.0
