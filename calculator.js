@@ -262,12 +262,21 @@ function updateHistoryDisplay() {
 
 function toggleHistory() {
     historyExpanded = !historyExpanded;
-    document.querySelector('.history-panel').classList.toggle('expanded', historyExpanded);
+    const historyPanel = document.querySelector('.history-panel');
+    if (historyPanel) {
+        historyPanel.classList.toggle('expanded', historyExpanded);
+    }
 
     const toggle = document.getElementById('historyToggle');
-    toggle.textContent = historyExpanded ? 'Hide' : 'Show all';
-    toggle.setAttribute('aria-expanded', String(historyExpanded));
+    if (toggle) {
+        toggle.textContent = historyExpanded ? 'Hide' : 'Show all';
+        toggle.setAttribute('aria-expanded', String(historyExpanded));
+    }
     updateHistoryDisplay();
+    const calc = document.querySelector('.calculator');
+    if (calc) {
+        calc.scrollTop = 0;
+    }
 }
 
 function useHistoryItem(calc) {
