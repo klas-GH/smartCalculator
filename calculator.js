@@ -477,12 +477,6 @@ function copyResult() {
     let deferredInstallPrompt = null;
     let installDismissed = false;
     const banner = document.getElementById('installBanner');
-    const storageKey = 'smartCalculator.installBannerDismissed';
-    try {
-        installDismissed = localStorage.getItem(storageKey) === '1';
-    } catch (error) {
-        console.warn('Could not read install banner preference:', error);
-    }
 
     const isStandalone = () =>
         window.matchMedia?.('(display-mode: standalone)').matches ||
@@ -496,15 +490,13 @@ function copyResult() {
     const dismissBanner = () => {
         installDismissed = true;
         hideBanner();
-        try {
-            localStorage.setItem(storageKey, '1');
-        } catch (error) {
-            console.warn('Could not save install banner preference:', error);
-        }
     };
 
     document.getElementById('installBtn')?.addEventListener('click', () => {
-        if (!deferredInstallPrompt) return;
+        if (!deferredInstallPrompt) {
+            window.alert("Use the install icon near the address bar or choose your browser menu's app-install option. On iPhone or iPad, use Share > Add to Home Screen.");
+            return;
+        }
         const prompt = deferredInstallPrompt;
         deferredInstallPrompt = null;
         Promise.resolve(prompt.prompt()).catch(error => console.error('PWA install prompt failed:', error));
@@ -521,6 +513,7 @@ function copyResult() {
         deferredInstallPrompt = null;
         hideBanner();
     });
+    showBanner();
     if (isStandalone()) hideBanner();
 })();
 
