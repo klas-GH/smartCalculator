@@ -27,7 +27,6 @@
                 </div>
             </div>
             <div class="right-section">
-                <button class="btn-icon" id="installBtn" onclick="installApp()" title="Install App" style="display: none;">📲</button>
                 <button class="btn-icon" id="themeToggle" onclick="toggleTheme()" title="Toggle dark/light mode">
                     <span id="themeIcon">🌙</span>
                 </button>
@@ -146,6 +145,23 @@
             <button class="btn-small confirm-delete" type="button" onclick="confirmClearHistory()">Delete</button>
         </div>
     </dialog>
+    <style>
+        #installBanner[hidden] { display: none; }
+        #installBanner { position: fixed; z-index: 1000; left: 50%; bottom: max(16px, env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(520px, calc(100% - 24px)); display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px; border: 1px solid #667eea; border-radius: 14px; background: #fff; color: #1d2340; box-shadow: 0 12px 36px #1d234033; font: 14px system-ui, sans-serif; }
+        #installBanner p { margin: 4px 0 0; color: #667085; }
+        #installBanner .install-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+        #installBanner button { width: auto; margin: 0; border: 0; border-radius: 8px; padding: 9px 12px; font: inherit; cursor: pointer; }
+        #installBanner #installBtn { background: #667eea; color: #fff; font-weight: 700; }
+        #installBanner #installLater { background: #eef0f7; color: #1d2340; }
+        @media (max-width: 480px) { #installBanner { align-items: stretch; flex-direction: column; } #installBanner .install-actions button { flex: 1; } }
+    </style>
+    <aside id="installBanner" role="region" aria-label="Install smartCalculator" hidden>
+        <div><strong>Install smartCalculator</strong><p>Keep your calculator one tap away.</p></div>
+        <div class="install-actions">
+            <button id="installLater" type="button">Not now</button>
+            <button id="installBtn" type="button">Install</button>
+        </div>
+    </aside>
     <script src="calculator.js"></script>
     <script>
         if ('serviceWorker' in navigator) {

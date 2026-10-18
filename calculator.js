@@ -473,35 +473,56 @@ function copyResult() {
 }
 
 // ============= PWA INSTALLATION =============
-let deferredInstallPrompt = null;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredInstallPrompt = e;
-    const installBtn = document.getElementById('installBtn');
-    if (installBtn && !window.matchMedia('(display-mode: standalone)').matches) {
-        installBtn.style.display = 'inline-flex';
+(() => {
+    let deferredInstallPrompt = null;
+    let installDismissed = false;
+    const banner = document.getElementById('installBanner');
+    const storageKey = 'smartCalculator.installBannerDismissed';
+    try {
+        installDismissed = localStorage.getItem(storageKey) === '1';
+    } catch (error) {
+        console.warn('Could not read install banner preference:', error);
     }
-});
 
-function installApp() {
-    if (deferredInstallPrompt) {
-        deferredInstallPrompt.prompt();
-        deferredInstallPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                const installBtn = document.getElementById('installBtn');
-                if (installBtn) installBtn.style.display = 'none';
-            }
-            deferredInstallPrompt = null;
-        });
-    }
-}
+    const isStandalone = () =>
+        window.matchMedia?.('(display-mode: standalone)').matches ||
+        navigator.standalone === true;
+    const hideBanner = () => {
+        if (banner) banner.hidden = true;
+    };
+    const showBanner = () => {
+        if (banner) banner.hidden = installDismissed || isStandalone();
+    };
+    const dismissBanner = () => {
+        installDismissed = true;
+        hideBanner();
+        try {
+            localStorage.setItem(storageKey, '1');
+        } catch (error) {
+            console.warn('Could not save install banner preference:', error);
+        }
+    };
 
-window.addEventListener('appinstalled', () => {
-    const installBtn = document.getElementById('installBtn');
-    if (installBtn) installBtn.style.display = 'none';
-    deferredInstallPrompt = null;
-});
+    document.getElementById('installBtn')?.addEventListener('click', () => {
+        if (!deferredInstallPrompt) return;
+        const prompt = deferredInstallPrompt;
+        deferredInstallPrompt = null;
+        Promise.resolve(prompt.prompt()).catch(error => console.error('PWA install prompt failed:', error));
+        hideBanner();
+        prompt.userChoice.catch(error => console.error('PWA install prompt failed:', error));
+    });
+    document.getElementById('installLater')?.addEventListener('click', dismissBanner);
+    window.addEventListener('beforeinstallprompt', event => {
+        event.preventDefault();
+        deferredInstallPrompt = event;
+        showBanner();
+    });
+    window.addEventListener('appinstalled', () => {
+        deferredInstallPrompt = null;
+        hideBanner();
+    });
+    if (isStandalone()) hideBanner();
+})();
 
 // ============= UNIT CONVERTER =============
 const CONVERTER_DATA = {
